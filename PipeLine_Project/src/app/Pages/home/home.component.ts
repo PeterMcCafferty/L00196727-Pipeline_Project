@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+
+  User: string = '';
+
+  getUserInput() {
+    const name = window.prompt('Enter your name:');
+    if (name) {
+      this.User = name;
+    }
+  }
+  
+
 }
