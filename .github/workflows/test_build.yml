@@ -25,10 +25,6 @@ jobs:
       - name: Install dependencies
       run: npm install
 
-      # 3. Install dependencies
-      - name: Install Dependencies
-        run: npm ci
-
       # 4. Run ESLint
       - name: Run ESLint
         run: npm run lint
