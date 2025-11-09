@@ -35,4 +35,4 @@ jobs:
 
       # 6 Build Angular app
       - name: Build Angular App
-        run: npm run build -- --configuration=production
+        run: npm run build 
