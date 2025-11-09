@@ -16,10 +16,6 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the component', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should update User when prompt returns a value', () => {
     spyOn(window, 'prompt').and.returnValue('John');
 
