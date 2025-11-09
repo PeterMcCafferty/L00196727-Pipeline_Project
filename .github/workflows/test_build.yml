@@ -1,1 +1,38 @@
+name: Angular Build Pipeline
 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Install dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Run ESLint
+      - name: Run ESLint
+        run: npm run lint
+
+      # 5. Run Angular tests with coverage
+      - name: Run Unit Tests with Coverage
+        run: npm run test -- --watch=false --code-coverage
+
+      # 6 Build Angular app
+      - name: Build Angular App
+        run: npm run build -- --configuration=production
