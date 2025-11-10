@@ -15,6 +15,10 @@ jobs:
       # 1. Checkout code
       - name: Checkout Repository
         uses: actions/checkout@v4
+        
+       # 5. Install Chrome
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
 
       # 2. Setup Node
       - name: Use Node.js 20
@@ -32,9 +36,7 @@ jobs:
         run: npm run lint
         working-directory: PipeLine_Project
       
-      # 5. Install Chrome
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@v1
+     
 
       # 6. Run Angular tests with coverage
       - name: Run Unit Tests with Coverage
