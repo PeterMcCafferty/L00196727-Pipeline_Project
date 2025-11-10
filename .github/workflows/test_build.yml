@@ -31,16 +31,17 @@ jobs:
       - name: Run ESLint
         run: npm run lint
         working-directory: PipeLine_Project
-        
+      
+      # 5. Install Chrome
       - name: Install Chrome
         uses: browser-actions/setup-chrome@v1
 
-      # 5. Run Angular tests with coverage
+      # 6. Run Angular tests with coverage
       - name: Run Unit Tests with Coverage
         run: npm run test -- --watch=false --code-coverage
         working-directory: PipeLine_Project
 
-      # 6 Build Angular app
+      # 7 Build Angular app
       - name: Build Angular App
         run: npm run build
         working-directory: PipeLine_Project
