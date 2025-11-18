@@ -8,7 +8,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { NavComponent } from './Components/nav/nav.component';
 import { SummaryComponent } from './pages/summary/summary.component';
 import { ComfirmationComponent } from './pages/comfirmation/comfirmation.component';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
