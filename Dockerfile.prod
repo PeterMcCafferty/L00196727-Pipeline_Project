@@ -1,0 +1,19 @@
+#--get node version
+FROM node:20 AS build
+
+WORKDIR /app
+
+# Copy package files and install.
+COPY PipeLine_Project/package*.json ./
+RUN npm install
+#Copy angular files and build
+COPY PipeLine_Project/ .
+RUN npm run build --prod
+
+#get latest nginx site and run
+FROM nginx:latest
+RUN rm -rf /usr/share/nginx/html/*
+#copy angular dist folder/build folder to nginx site.
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
