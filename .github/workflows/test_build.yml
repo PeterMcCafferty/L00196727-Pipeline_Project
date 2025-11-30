@@ -50,8 +50,9 @@ jobs:
 
       # 9. Build Docker Image
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:latest .
-        
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:latest \
+          -f PipeLine_Project/Dockerfile.prod PipeLine_Project
+
       # 10. Push Docker Image
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/angular-app:latest
